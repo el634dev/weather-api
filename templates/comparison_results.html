@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="weather-form">
+    {# 
+        TODO: Replace the hard-coded cities and date below with data from the 
+        server.
+    #}
+    <h1>Weather in {{city1.name}} and {{city2.name}}</h1>
+    <p>Today's date is {{city1.date}}</p>
+
+    {#
+        TODO: Add the temperature, description, and min & max temperature below.
+        Replace 'F' with the appropriate units.
+    #}
+    {% if city1.temp > city2.temp %}
+        <p>
+            {{ city1.name }} is {{ city1.temp }} while {{ city2.name}} is {{ city2.temp }}.
+        </p>
+        <p>It is warmer in {{ city1.name }}.</p>
+    {% else %}
+    <p>
+        {{ city2.name }} is {{ city2.temp }} while {{ city1.name}} is {{ city1.temp }}.
+    </p>
+    <p>It is warmer in {{ city2.name }}.</p>
+    {% endif %}
+    <!----------------->
+    {% if city1.humidity > city2.humidity %}
+        <p>
+            The humidity in {{city1.name}} is greater than in {{city2.name}}.
+        </p>
+    {% else %}
+    <p>
+        The humidity in {{city1.name}} is less than in {{city2.name}}.
+    </p>
+    {% endif %}
+    <!------------------------->
+   {% if city1.wind_speed > city2.wind_speed %}
+        <p>
+            The wind speed in {{city1.name}} is greater than in {{city2.name}}.
+        </p>
+   {% else %}
+        <p>
+            The wind speed in {{city1.name}} is less than in {{city2.name}}.
+        </p>
+   {% endif %}
+    <!------------------------->
+    <p>
+        <!-- Make one for later-->
+        The sun sets in {{city1.name}} at {{city1.sunset}}.
+    </p> 
+    <p>
+        The sun sets in {{city2.name}} at {{city2.sunset}}.
+    </p>
+</section>
+{% endblock %}
