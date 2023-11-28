@@ -161,4 +161,4 @@ def comparison_results():
 # ---------------------------------------------------------------
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
-    app.run(debug=True)
+    app.run(debug=False)
